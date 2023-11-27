@@ -1,61 +1,67 @@
-﻿namespace ToDoList.Mobile
+﻿using System.Collections.ObjectModel;
+using ToDoList.Mobile.Models;
+using ToDoList.Mobile.Services;
+
+namespace ToDoList.Mobile
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private ObservableCollection<GetIssueDto> getIssueList = new();
+        public ObservableCollection<GetIssueDto> GetIssueList
+        {
+            get { return getIssueList; }
+            set
+            {
+                getIssueList = value;
+            }
+        }
 
+
+        private readonly IItemsService _itemsService = new ItemsService();
         public MainPage()
         {
             InitializeComponent();
-        }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            //if (count == 1)
-            //    //CounterBtn.Text = $"Clicked {count} time";
-            //else
-            //    //CounterBtn.Text = $"Clicked {count} times";
-
-            //SemanticScreenReader.Announce(CounterBtn.Text);
-        }
-
-        private void ConfirmBtn_Clicked(object sender, EventArgs e)
-        {
-            string validator = string.Empty;
-
-            var isEmailCorrect = emailEntry.Text.Contains("@");
-            if(isEmailCorrect == false)
+            GetIssueList = new ObservableCollection<GetIssueDto>()
             {
-                validator = "Email musi zawierac znak malpy @\n";
-            }
+                new GetIssueDto()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Test",
+                    Description = "Test",
+                    IsCompleted = false,
+                    UserId = "Test",
+                    CreatedBy = "Test",
+                    CreatedAt = DateTime.Now,
+                    UpdatedBy = "Test",
+                    UpdatedAt = DateTime.Now
+                },
+                new GetIssueDto()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Test",
+                    Description = "Test",
+                    IsCompleted = false,
+                    UserId = "Test",
+                    CreatedBy = "Test",
+                    CreatedAt = DateTime.Now,
+                    UpdatedBy = "Test",
+                    UpdatedAt = DateTime.Now
+                },
+            };
+            IssuesListView.ItemsSource = GetIssueList;
+        }
 
-            if(passwordEntry.Text != confirmPasswordEntry.Text)
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            List<GetIssueDto> items = new();
+            Device.BeginInvokeOnMainThread(async () =>
             {
-                // to jest komentarz ;)
-                // validator = validator + "Hasla nie sa takie same\n";
-                
-                validator += "Hasla nie sa takie same\n";
-            }
-
-            ErrorsLabel.Text = validator;
-
-        }
-
-
-        private void passwordEntry_Unfocused(object sender, FocusEventArgs e)
-        {
-
-        }
-
-        private void emailEntry_Focused(object sender, FocusEventArgs e)
-        {
-
-        }
-
-        private void emailEntry_Unfocused(object sender, FocusEventArgs e)
-        {
+                items = await _itemsService.GetItemsAsync();
+                GetIssueList = new ObservableCollection<GetIssueDto>(items.ToList());
+                IssuesListView.ItemsSource = GetIssueList;
+            });
         }
     }
 }
