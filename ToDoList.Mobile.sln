@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Mobile", "ToDoList.Mobile\ToDoList.Mobile.csproj", "{704B08AA-1942-4223-B896-97730C73E5E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{704B08AA-1942-4223-B896-97730C73E5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704B08AA-1942-4223-B896-97730C73E5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704B08AA-1942-4223-B896-97730C73E5E6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{704B08AA-1942-4223-B896-97730C73E5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704B08AA-1942-4223-B896-97730C73E5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{704B08AA-1942-4223-B896-97730C73E5E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7F20AC0-D644-44C1-813B-5C54EE915185}
+	EndGlobalSection
+EndGlobal
