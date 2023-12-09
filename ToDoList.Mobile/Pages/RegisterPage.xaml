@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoList.Mobile.Pages.RegisterPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                BackgroundColor="Green"
+                TextColor="White"
+                Text="Rejestruj konto"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Entry x:Name="EmailEntry" Unfocused="EmailEntry_Unfocused"/>
+            <Label
+                x:Name="EmailLabel"
+                TextColor="MediumVioletRed"
+                FontSize="16" />
+
+            <Entry 
+                Placeholder="Haslo"
+                x:Name="PasswordEntry" IsPassword="True" 
+                Unfocused="PasswordEntry_Unfocused"/>
+
+
+            <Entry Placeholder="Powtorz haslo" 
+                   x:Name="ConfirmPasswordEntry" 
+                   IsPassword="True" Unfocused="ConfirmPasswordEntry_Unfocused"/>
+            <Label
+                x:Name="PasswordLabel"
+                TextColor="MediumVioletRed"
+                FontSize="16"/>
+
+            <Button
+                x:Name="ConfirmBtn"
+                Text="Zatwierdz"
+                Clicked="ConfirmBtn_Clicked"
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="EndAndExpand"/>
+
+            <Button
+                x:Name="LoginNavBtn"
+                Text="Masz konto? Zaloguj sie"
+                Clicked="LoginNavBtn_Clicked"
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="EndAndExpand"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

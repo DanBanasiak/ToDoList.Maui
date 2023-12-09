@@ -2,7 +2,7 @@
 using ToDoList.Mobile.Models;
 using ToDoList.Mobile.Services;
 
-namespace ToDoList.Mobile
+namespace ToDoList.Mobile.Pages
 {
     public partial class MainPage : ContentPage
     {
@@ -23,7 +23,7 @@ namespace ToDoList.Mobile
             InitializeComponent();
             GetIssueList = new ObservableCollection<GetIssueDto>()
             {
-                new GetIssueDto()
+                new()
                 {
                     Id = Guid.NewGuid(),
                     Title = "Test",
@@ -35,7 +35,7 @@ namespace ToDoList.Mobile
                     UpdatedBy = "Test",
                     UpdatedAt = DateTime.Now
                 },
-                new GetIssueDto()
+                new()
                 {
                     Id = Guid.NewGuid(),
                     Title = "Test",
@@ -48,9 +48,8 @@ namespace ToDoList.Mobile
                     UpdatedAt = DateTime.Now
                 },
             };
-            IssuesListView.ItemsSource = GetIssueList;
+            //IssuesListView.ItemsSource = GetIssueList;
         }
-
 
         protected override void OnAppearing()
         {
@@ -62,6 +61,11 @@ namespace ToDoList.Mobile
                 GetIssueList = new ObservableCollection<GetIssueDto>(items.ToList());
                 IssuesListView.ItemsSource = GetIssueList;
             });
+        }
+
+        private async void CreateIssueButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddIssuePage());
         }
     }
 }
