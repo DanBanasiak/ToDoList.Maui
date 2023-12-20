@@ -17,7 +17,7 @@
             Unfocused="DescriptionEntry_Unfocused"/>
 
         <Label
-            x:Name="PasswordLabel"
+            x:Name="DescriptionLabel"
             TextColor="MediumVioletRed"
             FontSize="16"/>
 
@@ -25,6 +25,7 @@
             x:Name="ConfirmBtn"
             Text="Dodaj"
             Clicked="ConfirmBtn_Clicked"
+            IsEnabled="False"
             HorizontalOptions="FillAndExpand" />
     </VerticalStackLayout>
 </ContentPage>
