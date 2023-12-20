@@ -9,6 +9,7 @@ public interface IItemsService
 {
     Task<List<GetIssueDto>> GetItemsAsync();
     Task<Guid> CreateItemAsync(CreateIssueDto dto);
+    Task<Guid> CompleteItemAsync(Guid id);
 }
 
 public class ItemsService : IItemsService
@@ -20,6 +21,12 @@ public class ItemsService : IItemsService
         {
             BaseAddress = new Uri("https://bookdance-dev-app.azurewebsites.net/")
         };
+    }
+
+    public async Task<Guid> CompleteItemAsync(Guid id)
+    {
+        await _httpClient.PutAsync($"Items/{id}/complete", null);
+        return id;
     }
 
     public async Task<Guid> CreateItemAsync(CreateIssueDto dto)

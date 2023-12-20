@@ -33,6 +33,32 @@ public partial class AddIssuePage : ContentPage
 
     private void DescriptionEntry_Unfocused(object sender, FocusEventArgs e)
     {
+        
+    }
+
+    private void TitleEntry_Unfocused(object sender, FocusEventArgs e)
+    {
+    }
+
+    private void TitleEntry_TextChanged(object sender, TextChangedEventArgs e)
+    { 
+        if (TitleEntry?.Text?.Length < 3)
+        {
+            TitleLabel.Text = "Title must be at least 3 characters long";
+            isTitleValidate = false;
+        }
+        else
+        {
+            TitleLabel.Text = "";
+            isTitleValidate = true;
+        }
+
+        isValidate = isTitleValidate && isDescriptionValidate;
+        ConfirmBtn.IsEnabled = isValidate;
+    }
+
+    private void DescriptionEntry_TextChanged(object sender, TextChangedEventArgs e)
+    {
         //to zamo znaczy if(DescriptionEntry !=null & & DescriptionEntry.Text != null)
         //co:
         //if(DescriptionEntry?.Text?...)
@@ -48,23 +74,6 @@ public partial class AddIssuePage : ContentPage
             isDescriptionValidate = true;
         }
 
-        isValidate = isTitleValidate && isDescriptionValidate;
-        ConfirmBtn.IsEnabled = isValidate;
-    }
-
-    private void TitleEntry_Unfocused(object sender, FocusEventArgs e)
-    {
-        if (TitleEntry?.Text?.Length < 3)
-        {
-            TitleLabel.Text = "Title must be at least 3 characters long";
-            isTitleValidate = false;
-        }
-        else
-        {
-            TitleLabel.Text = "";
-            isTitleValidate = true;
-        }
-        
         isValidate = isTitleValidate && isDescriptionValidate;
         ConfirmBtn.IsEnabled = isValidate;
     }

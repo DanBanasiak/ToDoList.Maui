@@ -8,9 +8,12 @@
             <Button Text="Create new issue"  
                     x:Name="CreateIssueButton"
                     Clicked="CreateIssueButton_Clicked"/>
-            <ListView x:Name="IssuesListView" ItemsSource="{Binding GetIssueList}"
-                      Margin="5"
-                      >
+            <ListView 
+                x:Name="IssuesListView" 
+                ItemsSource="{Binding GetIssueList}"
+                Margin="5"
+                ItemSelected="IssuesListView_ItemSelected"
+                >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

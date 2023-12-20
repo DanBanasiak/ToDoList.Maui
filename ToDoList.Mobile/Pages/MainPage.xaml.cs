@@ -57,15 +57,31 @@ namespace ToDoList.Mobile.Pages
             List<GetIssueDto> items = new();
             Device.BeginInvokeOnMainThread(async () =>
             {
-                items = await _itemsService.GetItemsAsync();
-                GetIssueList = new ObservableCollection<GetIssueDto>(items.ToList());
-                IssuesListView.ItemsSource = GetIssueList;
+                await GetItemsAsync();
             });
+        }
+
+        private async Task GetItemsAsync()
+        {
+            var items = await _itemsService.GetItemsAsync();
+            GetIssueList = new ObservableCollection<GetIssueDto>(items.ToList());
+            IssuesListView.ItemsSource = GetIssueList;
         }
 
         private async void CreateIssueButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddIssuePage());
+        }
+
+        private async void IssuesListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var issue = e.SelectedItem as GetIssueDto;
+            if (issue != null)
+            {
+                await _itemsService.CompleteItemAsync(issue.Id);
+            }
+
+            await GetItemsAsync();
         }
     }
 }
