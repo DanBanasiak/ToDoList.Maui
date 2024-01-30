@@ -8,6 +8,9 @@
             <Button Text="Create new issue"  
                     x:Name="CreateIssueButton"
                     Clicked="CreateIssueButton_Clicked"/>
+            <Button Text="Navigate to settingsPage"  
+                    x:Name="GoToSettingsPageButton"
+                    Clicked="GoToSettingsPageButton_Clicked"/>
             <ListView 
                 x:Name="IssuesListView" 
                 ItemsSource="{Binding GetIssueList}"

@@ -83,5 +83,10 @@ namespace ToDoList.Mobile.Pages
 
             await GetItemsAsync();
         }
+
+        private async void GoToSettingsPageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
+        }
     }
 }
