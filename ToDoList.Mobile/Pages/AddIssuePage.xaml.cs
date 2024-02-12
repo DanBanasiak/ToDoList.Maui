@@ -28,7 +28,7 @@ public partial class AddIssuePage : ContentPage
 
         var id = await _itemsService.CreateItemAsync(dto);
 
-        await Navigation.PushAsync(new MainPage());
+        await Navigation.PushAsync(new TabsPage());
     }
 
     private void DescriptionEntry_Unfocused(object sender, FocusEventArgs e)
