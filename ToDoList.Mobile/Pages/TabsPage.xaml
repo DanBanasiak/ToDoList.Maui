@@ -5,7 +5,7 @@
     xmlns:locals="clr-namespace:ToDoList.Mobile.Pages"
     x:Class="ToDoList.Mobile.Pages.TabsPage">
 
-    <locals:ListPage/>
+    <locals:MyIssuesPage/>
     <locals:SettingsPage/>
 
 </TabbedPage>
