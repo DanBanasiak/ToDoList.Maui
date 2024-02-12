@@ -10,7 +10,7 @@ public partial class RegisterPage : ContentPage
 
     private async void ConfirmBtn_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MainPage());
+        await Navigation.PushAsync(new TabsPage());
     }
 
     private void EmailEntry_Unfocused(object sender, FocusEventArgs e)
