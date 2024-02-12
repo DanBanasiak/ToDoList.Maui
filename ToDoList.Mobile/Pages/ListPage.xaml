@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoList.Mobile.Pages.ListPage"
+             Title="ListPage">
+    <ScrollView>
+        <StackLayout BackgroundColor="Coral">
+            <Button Text="Create new issue"  
+                x:Name="CreateIssueButton"
+                Clicked="CreateIssueButton_Clicked"/>
+            <Button Text="Navigate to settingsPage"  
+                x:Name="GoToSettingsPageButton"
+                Clicked="GoToSettingsPageButton_Clicked"/>
+            <ListView 
+            x:Name="IssuesListView" 
+            ItemsSource="{Binding GetIssueList}"
+            Margin="5"
+            ItemSelected="IssuesListView_ItemSelected"
+            >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Border Padding="5, 2, 7, 1" Margin="5" Stroke="Brown" 
+                                StrokeLineCap="Round"
+                                StrokeMiterLimit="5">
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontSize="Title"/>
+                                    <Label Text="{Binding Description}" FontSize="Subtitle"/>
+                                </StackLayout>
+                            </Border>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
