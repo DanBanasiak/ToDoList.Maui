@@ -6,4 +6,9 @@ public partial class DarkModeView : ContentView
 	{
 		InitializeComponent();
 	}
+
+    private void Switch_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+
+    }
 }

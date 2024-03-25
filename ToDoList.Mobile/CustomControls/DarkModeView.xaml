@@ -4,7 +4,8 @@
              x:Class="ToDoList.Mobile.CustomControls.DarkModeView">
     <StackLayout Orientation="Horizontal" Margin="10">
         <Label Text="Dark Mode" VerticalOptions="Center"></Label>
-        <Switch VerticalOptions="Center" HorizontalOptions="EndAndExpand"></Switch>
+        <Switch VerticalOptions="Center" HorizontalOptions="EndAndExpand"
+                PropertyChanged="Switch_PropertyChanged"></Switch>
     </StackLayout>
 </ContentView>
     

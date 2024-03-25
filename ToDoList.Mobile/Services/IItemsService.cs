@@ -10,6 +10,7 @@ public interface IItemsService
     Task<List<GetIssueDto>> GetItemsAsync();
     Task<Guid> CreateItemAsync(CreateIssueDto dto);
     Task<Guid> CompleteItemAsync(Guid id);
+    Task<List<GetIssueDto>> GetItemsHistoryAsync();
 }
 
 public class ItemsService : IItemsService
@@ -23,6 +24,12 @@ public class ItemsService : IItemsService
         };
     }
 
+    public async Task<List<GetIssueDto>> GetItemsHistoryAsync()
+    {
+        var request = await _httpClient.GetAsync("Items/History");
+        var response = await request.Content.ReadAsStringAsync();
+        return JsonSerializer.Deserialize<List<GetIssueDto>>(response, JsonConfig.Options);
+    }
     public async Task<Guid> CompleteItemAsync(Guid id)
     {
         await _httpClient.PutAsync($"Items/{id}/complete", null);
@@ -53,4 +60,5 @@ public class ItemsService : IItemsService
         var dtos = JsonSerializer.Deserialize<List<GetIssueDto>>(response, JsonConfig.Options);
         return dtos;
     }
+
 }

@@ -22,24 +22,35 @@
                      HorizontalOptions="FillAndExpand"
                      Orientation="Vertical">
 
-            <controls:DarkModeView/>
+            <!--<controls:DarkModeView/>-->
+            <Switch
+                VerticalOptions="Center" HorizontalOptions="EndAndExpand"
+                x:Name="DarkModeView"
+                PropertyChanged="DarkModeView_PropertyChanged"/>
             
             <StackLayout Orientation="Horizontal" Margin="10">
-                <Label VerticalOptions="Center" Text="Layout"></Label>
+                <Label VerticalOptions="Center" Text="Layout"/>
                 <Picker VerticalOptions="Center" HorizontalOptions="EndAndExpand">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String>Inglisz</x:String>
-                            <x:String>Polisz</x:String>
-                            <x:String>Francis</x:String>
+                            <x:String>English</x:String>
+                            <x:String>Polish</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
-                <Label VerticalOptions="Center" Text="Version"></Label>
-                <Label VerticalOptions="Center" HorizontalOptions="EndAndExpand" Text="1.01.3"></Label>
+                <Label VerticalOptions="Center" Text="Version"/>
+                <Label VerticalOptions="Center" HorizontalOptions="EndAndExpand" Text="1.01.3"/>
             </StackLayout>
+
+            <Label x:Name="ManufacturerLabel"/>
+            <Label x:Name="NameLabel"/>
+            <Label x:Name="VersionLabel"/>
+            <Label x:Name="DeviceTypeLabel"/>
+            <Label x:Name="PlatformLabel"/>
+            <Label x:Name="IdiomLabel"/>
+
         </StackLayout>
         <Label Grid.Column="2" Text="tamtej"></Label>
     </Grid>
